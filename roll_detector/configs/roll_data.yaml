@@ -1,0 +1,19 @@
+copy_paste: 0.0
+feature_layer: 15
+mixup: 0.0
+mosaic: 0.0
+names:
+- BAG
+- BOX
+- MAIL
+- ROBOT
+nc: 4
+path: /workspaces/2d_roll/datasets/roll_detection
+roll_loss_weight: 1.0
+temporal_consistency: 0.5
+temporal_window: 5
+time_gap: 2.0
+train: images/train
+train_json: /workspaces/2d_roll/datasets/roll_detection/instances_Train.json
+val: images/val
+val_json: /workspaces/2d_roll/datasets/roll_detection/instances_Val.json

@@ -1,0 +1,26 @@
+# configs/roll_detector.yaml
+# 翻滚检测推理配置文件
+
+# ========== 特征提取配置 ==========
+feature_layer: 15              # 提取特征的层索引
+
+# ========== 翻滚判定阈值 ==========
+threshold_stable: 0.85         # 稳定阈值 (相似度高于此值为稳定)
+threshold_roll: 0.65           # 翻滚阈值 (相似度低于此值为翻滚)
+
+# ========== 时序配置 ==========
+time_gap_seconds: 2.0          # 包裹分组的最大时间间隔
+first_vs_frames: [3, 5]        # 对比第1帧与第3、5帧
+first_vs_last: true            # 是否对比第1帧与最后一帧
+
+# ========== 角度配置 ==========
+use_angle: true                # 是否使用角度特征
+angle_threshold: 15.0          # 角度变化阈值（度）
+angle_weight: 0.5              # 角度特征权重 (0-1)
+
+# ========== 模型推理配置 ==========
+model:
+  imgsz: 640                   # 输入尺寸
+  conf: 0.5                    # 置信度阈值
+  iou: 0.75                    # NMS IoU阈值
+  retina_masks: true           # 使用Retina masks

@@ -1,0 +1,23 @@
+# configs/train_fixed.yaml
+
+# 基础路径 (脚本会自动修改为绝对路径)
+path: . 
+train: datasets/roll_detection/images/train
+val: datasets/roll_detection/images/val
+
+# 【自定义参数区域】
+# 这些参数将被 Trainer 读取，而不是作为 args 传递
+temporal_window: 5
+train_json: datasets/roll_detection/instances_Train.json
+val_json: datasets/roll_detection/instances_Val.json
+
+# 标准 YOLO 参数
+nc: 4
+names: ['BAG', 'BOX', 'MAIL', 'ROBOT']
+
+# 增强与模型配置
+model: yolo11m-seg.pt
+mosaic: 0.0      # 关闭 Mosaic 以保持时序连贯
+mixup: 0.0
+copy_paste: 0.0
+degrees: 0.0     # 尽量减少旋转，除非你的业务场景包括大角度旋转

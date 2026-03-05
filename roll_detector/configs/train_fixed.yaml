@@ -1,0 +1,6 @@
+path: /workspaces/2d_roll/roll_detector
+temporal_window: 5
+train: datasets/roll_detection/images/train
+train_json: /workspaces/2d_roll/roll_detector/datasets/roll_detection/instances_Train.json
+val: datasets/roll_detection/images/val
+val_json: /workspaces/2d_roll/roll_detector/datasets/roll_detection/instances_Val.json
