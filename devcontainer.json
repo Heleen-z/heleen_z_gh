@@ -1,0 +1,29 @@
+{
+    "name": "annotation_pipeline",
+    "build": {
+      "dockerfile": "Dockerfile",
+      "context": ".."
+    },
+    "forwardPorts": [6080],
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-azuretools.vscode-docker",
+          "ms-python.python",
+          "ms-python.vscode-pylance",
+          "ms-python.debugpy"
+        ]
+      }
+    },
+    "mounts": [
+      "source=/home/ml_data/华新NC-152,target=/workspaces/annotation_pipeline/dataset/huaxin_nc_152,type=bind,consistency=cached"
+    ],
+    "runArgs": [
+      "--cap-add=SYS_PTRACE",
+      "--security-opt",
+      "seccomp=unconfined",
+      "--net=host",
+      "--shm-size=2g",
+      "--gpus=all"
+    ]
+  }
